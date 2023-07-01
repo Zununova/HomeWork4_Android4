@@ -18,10 +18,10 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideCategoryApiService(retrofitClient: RetrofitClient) =
-        retrofitClient.provideVideoCategoryApiService()
+        retrofitClient.provideCategoryApiService()
 
     @Singleton
     @Provides
     fun provideVideoApiService(retrofitClient: RetrofitClient) =
-        retrofitClient.provideSearchApiService()
+        retrofitClient.provideVideoApiService()
 }

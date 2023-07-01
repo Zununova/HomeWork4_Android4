@@ -31,9 +31,9 @@ class RetrofitClient {
         HttpLoggingInterceptor.Level.BODY
     )
 
-    fun provideVideoCategoryApiService() =
+    fun provideCategoryApiService() =
         retrofitClient.create(VideoCategoryApiService::class.java)
 
-    fun provideSearchApiService() =
+    fun provideVideoApiService() =
         retrofitClient.create(VideoApiService::class.java)
 }
