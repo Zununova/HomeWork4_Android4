@@ -8,7 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent :: class)
+@InstallIn(SingletonComponent::class)
 object NetworkModule {
 
     @Singleton
@@ -17,9 +17,11 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideApiServiceVideoCategory(retrofitClient: RetrofitClient) = retrofitClient.provideVideoCategoryApiService()
+    fun provideCategoryApiService(retrofitClient: RetrofitClient) =
+        retrofitClient.provideVideoCategoryApiService()
 
     @Singleton
     @Provides
-    fun provideApiServiceSearch(retrofitClient: RetrofitClient) = retrofitClient.provideSearchApiService()
+    fun provideVideoApiService(retrofitClient: RetrofitClient) =
+        retrofitClient.provideSearchApiService()
 }

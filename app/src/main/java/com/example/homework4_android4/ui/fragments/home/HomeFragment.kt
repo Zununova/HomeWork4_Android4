@@ -1,9 +1,7 @@
 package com.example.homework4_android4.ui.fragments.home
 
-import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.util.Log
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -24,12 +22,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     private val videoAdapter = VideoAdapter()
 
     private fun onItemCLick(id: String?) {
-        viewModel.fetchVideo(id).observe(viewLifecycleOwner) { it ->
+        viewModel.fetchVideo(id).observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Error ->
-                    Log.e(TAG, "error" )
+                    Log.e(TAG, "error")
                 is Resource.Loading ->
-                    Log.e(TAG, "loading" )
+                    Log.e(TAG, "loading")
                 is Resource.Success ->
                     videoAdapter.submitList(it.data?.items)
             }
@@ -37,7 +35,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     }
 
     override fun initialize() {
-        super.initialize()
 
         viewBinding.recyclerViewVideoCategory.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -51,21 +48,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     }
 
     override fun setupSubscribes() {
-        super.setupSubscribes()
-
         videoCategorySubscribe()
         videoSubscribe()
     }
 
     private fun videoCategorySubscribe() {
-
-
         viewModel.fetchVideoCategory().observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Error ->
-                    Log.e(TAG, "error" )
+                    Log.e(TAG, "error")
                 is Resource.Loading ->
-                    Log.e(TAG, "loading" )
+                    Log.e(TAG, "loading")
                 is Resource.Success ->
                     videoCategoryAdapter.submitList(it.data?.items)
             }
@@ -76,9 +69,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
         viewModel.fetchVideo("0").observe(viewLifecycleOwner) { it ->
             when (it) {
                 is Resource.Error ->
-                    Log.e(TAG, "error" )
+                    Log.e(TAG, "error")
                 is Resource.Loading ->
-                    Log.e(TAG, "loading" )
+                    Log.e(TAG, "loading")
                 is Resource.Success ->
                     videoAdapter.submitList(it.data?.items)
             }

@@ -18,13 +18,17 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>(@LayoutRes val lay
 
         initialize()
         setupSubscribes()
-        setupListener()
+        setupRequests()
+        setupListeners()
     }
+
 
     protected open fun initialize() {}
 
     protected open fun setupSubscribes() {}
 
-    protected open fun setupListener() {}
+    protected open fun setupRequests() {}
+
+    protected open fun setupListeners() {}
 
 }
